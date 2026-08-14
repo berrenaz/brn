@@ -1,5 +1,5 @@
 const welcome = document.getElementById("welcome");
-const menuScreen = document.getElementById("menuScreen");
+const menuScreen = document.getElementById("menu");
 const menuBody = document.getElementById("menuBody");
 const openMenu = document.getElementById("openMenu");
 const closeMenu = document.getElementById("closeMenu");
@@ -20,8 +20,21 @@ function hideMenu() {
   document.body.classList.remove("menu-open");
 }
 
-openMenu.addEventListener("click", showMenu);
-closeMenu.addEventListener("click", hideMenu);
+openMenu.addEventListener("click", (event) => {
+  event.preventDefault();
+  showMenu();
+  history.replaceState(null, "", "#menu");
+});
+
+closeMenu.addEventListener("click", (event) => {
+  event.preventDefault();
+  hideMenu();
+  history.replaceState(null, "", window.location.pathname);
+});
+
+if (window.location.hash === "#menu") {
+  showMenu();
+}
 
 cats.addEventListener("click", (event) => {
   const button = event.target.closest(".cat");

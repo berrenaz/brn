@@ -1,19 +1,16 @@
 # Hazelune Menü
 
-Hazelune kruvasan kafe için dijital menü.
+Tek dosyalık dijital menü: **`index.html`**
 
-## Çalıştırma
+## Siteyi açmak
 
-Tarayıcıda `index.html` dosyasını açın veya yerelde:
+GitHub kodu gösterir, siteyi açmaz. Şunu yapın:
 
-```bash
-python3 -m http.server 8080
-```
+1. Bu klasördeki `index.html` dosyasını bilgisayara indirin
+2. Dosyaya çift tıklayın — tarayıcıda açılır
 
-Sonra `http://localhost:8080` adresine gidin.
+Menü, CSS ve kruvasan görseli bu tek dosyanın içindedir. İnternet olmasa da açılır.
 
-## Görselleri ekleme
+## Ürün fotoğrafları
 
-Her ürünün yanında boş bir görsel alanı vardır. Fotoğrafları `images/` klasörüne, kutuda yazan dosya adıyla koyun. Sayfayı yenilediğinizde görsel otomatik görünür.
-
-Örnek: `images/serpme-kahvalti.jpg`
+Fotoğrafları `images/` klasörüne, menüdeki dosya adıyla koyun. Örnek: `images/serpme-kahvalti.jpg`
