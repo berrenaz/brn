@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hazelune | Menü</title>
+  <meta name="description" content="Hazelune kruvasan kafe menüsü — kahvaltı, kruvasan, tatlı ve içecekler." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <section class="welcome" id="welcome">
+    <div class="croissant-stage" aria-hidden="true">
+      <div class="croissant-glow"></div>
+      <div class="steam"><span></span><span></span><span></span></div>
+      <div class="flake"></div>
+      <div class="flake"></div>
+      <div class="flake"></div>
+      <div class="flake"></div>
+      <div class="flake"></div>
+      <img class="croissant" src="images/welcome-croissant.png" alt="" />
+    </div>
+
+    <div class="welcome-content">
+      <p class="brand-mark">Hazelune</p>
+      <h1>Hazelune'ye<br />Hoşgeldiniz</h1>
+      <p class="welcome-sub">Kruvasan · Kahvaltı · Tatlı</p>
+      <button class="cta" id="openMenu" type="button">
+        Menüyü Gör
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <main class="menu-screen" id="menuScreen" aria-hidden="true">
+    <header class="menu-header">
+      <div class="menu-header-row">
+        <div class="logo">Hazelune</div>
+        <button class="close-menu" id="closeMenu" type="button" aria-label="Karşılama ekranına dön">✕</button>
+      </div>
+      <nav class="cats" id="cats" aria-label="Menü kategorileri">
+        <button class="cat is-active" data-target="kahvalti" type="button">Kahvaltı</button>
+        <button class="cat" data-target="kruvasan" type="button">Kruvasan</button>
+        <button class="cat" data-target="tatlilar" type="button">Tatlılar</button>
+        <button class="cat" data-target="icecekler" type="button">İçecekler</button>
+        <button class="cat" data-target="kahveler" type="button">Sıcak Kahveler</button>
+        <button class="cat" data-target="frozen" type="button">Frozen &amp; Milkshake</button>
+      </nav>
+    </header>
+
+    <div class="menu-body" id="menuBody">
+      <div class="menu-inner">
+        <section class="section" id="kahvalti">
+          <h2 class="section-title">Kahvaltı</h2>
+          <div class="grid featured">
+            <article class="item featured">
+              <div class="photo" data-img="images/serpme-kahvalti.jpg">
+                <span class="photo-hint">Görsel alanı<small>serpme-kahvalti.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>2 Kişilik Serpme Kahvaltı</h3>
+                  <span class="price">₺1.500</span>
+                </div>
+                <p class="desc">Sahanda yumurta, menemen, mevsim yeşillikleri, zeytin çeşitleri, peynir çeşitleri, reçel çeşitleri, Sarelle, bal, kaymak, tereyağı, 4 adet sosis, 2 dilim sigara böreği, hindi füme, 2 adet mini kruvasan, 2 adet krep rulo, 2 dilim su böreği, 1 pot çay, meyveler.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/kahvalti-tabagi.jpg">
+                <span class="photo-hint">Görsel alanı<small>kahvalti-tabagi.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Kahvaltı Tabağı</h3>
+                  <span class="price">₺350</span>
+                </div>
+                <p class="desc">Mevsim yeşillikleri, peynir çeşitleri, patates kızartması, 1 adet haşlanmış yumurta, bal, tereyağı, reçel çeşitleri, 2 adet sosis, 1 bardak çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/mini-kahvalti.jpg">
+                <span class="photo-hint">Görsel alanı<small>mini-kahvalti.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Mini Kahvaltı Tabağı</h3>
+                  <span class="price">₺250</span>
+                </div>
+                <p class="desc">Mevsim yeşillikleri, 1 adet haşlanmış yumurta, patates kızartması, Sarelle, siyah zeytin, 2 dilim hindi füme, 1 bardak çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/kruvasan-kahvalti.jpg">
+                <span class="photo-hint">Görsel alanı<small>kruvasan-kahvalti.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Kruvasan Kahvaltı Tabağı</h3>
+                  <span class="price">₺350</span>
+                </div>
+                <p class="desc">6 adet mini kruvasan, Sarelle, reçel çeşitleri, 1 adet haşlanmış yumurta, mevsim yeşillikleri, peynir çeşitleri, 2 adet hindi füme, 1 bardak çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/krep-kahvalti.jpg">
+                <span class="photo-hint">Görsel alanı<small>krep-kahvalti.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Krep Kahvaltı Tabağı</h3>
+                  <span class="price">₺350</span>
+                </div>
+                <p class="desc">4 adet krep, Sarelle, bal, tereyağı, labne, mevsimsel meyveler, zeytin ezmesi, domates, salatalık, çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/ordu-tostu.jpg">
+                <span class="photo-hint">Görsel alanı<small>ordu-tostu.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Ordu Tostu</h3>
+                  <span class="price">₺220</span>
+                </div>
+                <p class="desc">Ezme sucuk, kaşar peyniri, domates, salatalık, patates kızartması, 1 bardak çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/cift-kasarli-tost.jpg">
+                <span class="photo-hint">Görsel alanı<small>cift-kasarli-tost.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Çift Kaşarlı Tost</h3>
+                  <span class="price">₺230</span>
+                </div>
+                <p class="desc">Kaşar peyniri, domates, salatalık, patates kızartması, 1 bardak çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/bazlama-yengen.jpg">
+                <span class="photo-hint">Görsel alanı<small>bazlama-yengen.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Bazlama Yengen Tost</h3>
+                  <span class="price">₺250</span>
+                </div>
+                <p class="desc">Domates, kornişon turşu, kaşar, dilim sucuk, patates kızartması, 1 bardak çay.</p>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/gozleme-peynirli.jpg">
+                <span class="photo-hint">Görsel alanı<small>gozleme-peynirli.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Gözleme Çeşitleri</h3>
+                  <span class="price">₺230</span>
+                </div>
+                <div class="tags">
+                  <span class="tag">Peynirli</span>
+                  <span class="tag">Patatesli</span>
+                  <span class="tag">Kaşarlı</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/gozleme-kiymali.jpg">
+                <span class="photo-hint">Görsel alanı<small>gozleme-kiymali.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Gözleme Çeşitleri</h3>
+                  <span class="price">₺250</span>
+                </div>
+                <div class="tags">
+                  <span class="tag">Kıymalı</span>
+                  <span class="tag">Karışık</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/kuymak.jpg">
+                <span class="photo-hint">Görsel alanı<small>kuymak.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Kuymak</h3>
+                  <span class="price">₺250</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="item featured">
+              <div class="photo" data-img="images/menemen.jpg">
+                <span class="photo-hint">Görsel alanı<small>menemen.jpg</small></span>
+              </div>
+              <div class="item-body">
+                <div class="item-top">
+                  <h3>Menemen</h3>
+                  <span class="price">₺250</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="kruvasan">
+          <h2 class="section-title">Kruvasan</h2>
+          <div class="grid">
+            <article class="item compact">
+              <div class="photo" data-img="images/sade-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>sade-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Sade Kruvasan</h3><span class="price">₺75</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/cikolatali-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>cikolatali-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Çikolatalı Kruvasan</h3><span class="price">₺125</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/cilekli-kremali-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>cilekli-kremali-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Çilekli Kremalı Kruvasan</h3><span class="price">₺150</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/kup-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>kup-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Küp Kruvasan</h3><span class="price">₺250</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/danish-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>danish-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Danish Kruvasan</h3><span class="price">₺250</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/stich-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>stich-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Stich Kruvasan</h3><span class="price">₺175</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/kasarli-sandvic-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>kasarli-sandvic-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Kaşarlı Sandviç Kruvasan</h3><span class="price">₺125</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/hindi-fume-cheddar-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>hindi-fume-cheddar-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Hindi Füme Cheddar Kruvasan</h3><span class="price">₺150</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/sosisli-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>sosisli-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Sosisli Kruvasan</h3><span class="price">₺175</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/snickers-kruvasan.jpg"><span class="photo-hint">Görsel alanı<small>snickers-kruvasan.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Snickers Kruvasan</h3><span class="price">₺175</span></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="tatlilar">
+          <h2 class="section-title">Tatlılar</h2>
+          <div class="grid featured">
+            <article class="item featured">
+              <div class="photo" data-img="images/cup-cesitleri.jpg"><span class="photo-hint">Görsel alanı<small>cup-cesitleri.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Cup Çeşitleri</h3><span class="price">₺180</span></div></div>
+            </article>
+            <article class="item featured">
+              <div class="photo" data-img="images/adet-pasta.jpg"><span class="photo-hint">Görsel alanı<small>adet-pasta.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Adet Pasta</h3><span class="price">₺180</span></div></div>
+            </article>
+            <article class="item featured">
+              <div class="photo" data-img="images/hazelune-special.jpg"><span class="photo-hint">Görsel alanı<small>hazelune-special.jpg</small></span></div>
+              <div class="item-body">
+                <div class="item-top"><h3>Hazelune Special</h3><span class="price">₺350</span></div>
+                <p class="desc">Waffle hamuru, çilek, muz, krema, file fındık, sütlü ve beyaz Belçika çikolata.</p>
+              </div>
+            </article>
+            <article class="item featured">
+              <div class="photo" data-img="images/hazelune-special-2kisilik.jpg"><span class="photo-hint">Görsel alanı<small>hazelune-special-2kisilik.jpg</small></span></div>
+              <div class="item-body">
+                <div class="item-top"><h3>Hazelune Special 2 Kişilik</h3><span class="price">₺500</span></div>
+                <p class="desc">Waffle hamuru, çilek, muz, krema, file fındık, sütlü ve beyaz Belçika çikolata.</p>
+              </div>
+            </article>
+            <article class="item featured">
+              <div class="photo" data-img="images/waffle.jpg"><span class="photo-hint">Görsel alanı<small>waffle.jpg</small></span></div>
+              <div class="item-body">
+                <div class="item-top"><h3>Waffle</h3><span class="price">₺350</span></div>
+                <p class="desc">Waffle hamuru, çilek, muz, krema, file fındık, sütlü ve beyaz Belçika çikolata, file badem.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="icecekler">
+          <h2 class="section-title">İçecekler</h2>
+          <div class="grid">
+            <article class="item compact">
+              <div class="photo" data-img="images/cay.jpg"><span class="photo-hint">Görsel alanı<small>cay.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Çay</h3><span class="price">₺25</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/buyuk-cay.jpg"><span class="photo-hint">Görsel alanı<small>buyuk-cay.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Büyük Çay</h3><span class="price">₺40</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/kutu-icecek.jpg"><span class="photo-hint">Görsel alanı<small>kutu-icecek.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Kutu İçecek</h3><span class="price">₺70</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/sade-soda.jpg"><span class="photo-hint">Görsel alanı<small>sade-soda.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Sade Soda</h3><span class="price">₺25</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/meyve-suyu-200.jpg"><span class="photo-hint">Görsel alanı<small>meyve-suyu-200.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>200 ml Meyve Suyu</h3><span class="price">₺25</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/meyve-suyu-1lt.jpg"><span class="photo-hint">Görsel alanı<small>meyve-suyu-1lt.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>1 lt Meyve Suyu</h3><span class="price">₺90</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/meyveli-soda.jpg"><span class="photo-hint">Görsel alanı<small>meyveli-soda.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Meyveli Soda</h3><span class="price">₺30</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/su.jpg"><span class="photo-hint">Görsel alanı<small>su.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Su</h3><span class="price">₺15</span></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="kahveler">
+          <h2 class="section-title">Sıcak Kahveler</h2>
+          <div class="grid">
+            <article class="item compact">
+              <div class="photo" data-img="images/latte.jpg"><span class="photo-hint">Görsel alanı<small>latte.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Latte</h3><span class="price">₺150</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/americano.jpg"><span class="photo-hint">Görsel alanı<small>americano.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Americano</h3><span class="price">₺130</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/cappuccino.jpg"><span class="photo-hint">Görsel alanı<small>cappuccino.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Cappuccino</h3><span class="price">₺150</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/caramel-latte.jpg"><span class="photo-hint">Görsel alanı<small>caramel-latte.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Caramel Latte</h3><span class="price">₺170</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/mocha.jpg"><span class="photo-hint">Görsel alanı<small>mocha.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Mocha</h3><span class="price">₺170</span></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="frozen">
+          <h2 class="section-title">Frozen &amp; Milkshake</h2>
+          <div class="grid">
+            <article class="item compact">
+              <div class="photo" data-img="images/karadut-frozen.jpg"><span class="photo-hint">Görsel alanı<small>karadut-frozen.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Karadut Frozen</h3><span class="price">₺180</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/lime-frozen.jpg"><span class="photo-hint">Görsel alanı<small>lime-frozen.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Lime Frozen</h3><span class="price">₺180</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/carkifelek-frozen.jpg"><span class="photo-hint">Görsel alanı<small>carkifelek-frozen.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Çarkıfelek Frozen</h3><span class="price">₺180</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/karpuz-frozen.jpg"><span class="photo-hint">Görsel alanı<small>karpuz-frozen.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Karpuz Frozen</h3><span class="price">₺180</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/cikolatali-milkshake.jpg"><span class="photo-hint">Görsel alanı<small>cikolatali-milkshake.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Çikolatalı Milkshake</h3><span class="price">₺190</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/caramelli-milkshake.jpg"><span class="photo-hint">Görsel alanı<small>caramelli-milkshake.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Caramelli Milkshake</h3><span class="price">₺190</span></div></div>
+            </article>
+            <article class="item compact">
+              <div class="photo" data-img="images/vanilyali-milkshake.jpg"><span class="photo-hint">Görsel alanı<small>vanilyali-milkshake.jpg</small></span></div>
+              <div class="item-body"><div class="item-top"><h3>Vanilyalı Milkshake</h3><span class="price">₺190</span></div></div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="menu-footer">
+          <strong>Hazelune</strong>
+          Kruvasan kafe menüsü
+        </footer>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
