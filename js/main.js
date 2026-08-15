@@ -102,6 +102,23 @@
     return urls;
   }
 
+  const heroPhoto = document.querySelector(".hero-photo");
+  if (heroPhoto) {
+    const heroUrls = candidates("hero-croissant.jpg");
+    let heroIndex = 0;
+    const tryHero = () => {
+      if (heroIndex >= heroUrls.length) {
+        heroPhoto.removeAttribute("src");
+        heroPhoto.style.visibility = "hidden";
+        return;
+      }
+      heroPhoto.src = heroUrls[heroIndex];
+      heroIndex += 1;
+    };
+    heroPhoto.addEventListener("error", tryHero);
+    tryHero();
+  }
+
   document.querySelectorAll(".photo[data-img]").forEach((slot) => {
     const fileName = (slot.dataset.img || "").replace(/^images\//, "");
     if (!fileName) return;
