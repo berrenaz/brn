@@ -1,18 +1,31 @@
 # Hazelune
 
-Tek dosyalık anasayfa ve dijital menü: **`index.html`**
-
 ## Siteyi açmak
 
-GitHub kodu gösterir, siteyi açmaz.
+Sadece `index.html` indirme. Tüm klasörü indir:
 
-1. `index.html` dosyasını **yeniden** indirin (eski dosya güncellenmez)
-2. Dosyaya çift tıklayın
+1. GitHub’da yeşil **Code** → **Download ZIP**
+2. ZIP’i aç
+3. İçindeki `index.html` dosyasına çift tıkla
 
-## Ürün fotoğrafları
+Klasör şöyle olmalı:
 
-Fotoğrafları GitHub’da **`images`** klasörüne, menüdeki adla yükleyin.
+```
+Hazelune/
+  index.html
+  images/
+    hero-croissant.jpg
+    serpme-kahvalti.jpg
+    latte.jpg
+    ...
+```
 
-Örnek: `images/serpme-kahvalti.jpg`
+## Görseli yarın değiştirmek
 
-Repo gizli olduğu için GitHub’a yüklemek tek başına yetmez. Görselin menüde görünmesi için yeni `index.html` indirilmeli.
+Gömülü bir şey değiştirmen gerekmez.
+
+1. `images` klasöründe o ürünün dosyasını aynı adla değiştir  
+   örnek: `images/serpme-kahvalti.jpg`
+2. Tarayıcıda sayfayı yenile (gerekirse Ctrl+Shift+R)
+
+GitHub’a da yüklüyorsan: `images` klasörüne aynı adla Upload et, sonra ZIP’i tekrar indir veya bilgisayarındaki `images` dosyasını değiştir.

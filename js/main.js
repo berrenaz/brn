@@ -4,6 +4,7 @@
   const menuBody = document.getElementById("menuBody");
   const closeMenu = document.getElementById("closeMenu");
   const cats = document.getElementById("cats");
+  const cacheBust = Date.now();
 
   if (!welcome || !menuScreen || !menuBody || !closeMenu || !cats) return;
 
@@ -88,49 +89,21 @@
     });
   });
 
-  const embeddedPhotos = window.EMBEDDED_PHOTOS || {};
-  const githubImages = [
-    "https://raw.githubusercontent.com/berrenaz/brn/cursor/hazelune-homepage-378a/images/",
-    "https://raw.githubusercontent.com/berrenaz/brn/main/images/",
-  ];
-
-  function photoCandidates(fileName) {
-    const base = fileName.replace(/\.[^.]+$/, "");
-    const names = [fileName, `${base}.jpg`, `${base}.jpeg`, `${base}.png`, `${base}.webp`];
-    const unique = [...new Set(names)];
-    const urls = [];
-    unique.forEach((name) => {
-      if (embeddedPhotos[name]) urls.push(embeddedPhotos[name]);
-    });
-    unique.forEach((name) => urls.push(`images/${name}`));
-    githubImages.forEach((root) => {
-      unique.forEach((name) => urls.push(`${root}${name}`));
-    });
-    return [...new Set(urls)];
+  const heroPhoto = document.querySelector(".hero-photo");
+  if (heroPhoto) {
+    heroPhoto.src = `images/hero-croissant.jpg?v=${cacheBust}`;
   }
 
-  function loadPhoto(slot) {
+  document.querySelectorAll(".photo[data-img]").forEach((slot) => {
     const fileName = (slot.dataset.img || "").replace(/^images\//, "");
     if (!fileName) return;
 
-    const urls = photoCandidates(fileName);
     const image = new Image();
     image.alt = slot.closest(".item")?.querySelector("h3")?.textContent || "";
-    let index = 0;
-
-    const tryNext = () => {
-      if (index >= urls.length) return;
-      image.src = urls[index];
-      index += 1;
-    };
-
     image.onload = () => {
       slot.appendChild(image);
       slot.classList.add("has-image");
     };
-    image.onerror = tryNext;
-    tryNext();
-  }
-
-  document.querySelectorAll(".photo[data-img]").forEach(loadPhoto);
+    image.src = `images/${fileName}?v=${cacheBust}`;
+  });
 })();
