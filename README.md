@@ -26,21 +26,14 @@ Hazelune/
 
 ## Domain: hazelunebakery.online
 
-1. GitHub’da repo **Public** olsun: Settings → Change repository visibility
-2. Settings → Pages
-   - Source: **GitHub Actions**
-   - Custom domain: `hazelunebakery.online`
-   - **Enforce HTTPS**
-3. Domain panelinde (DNS) şu kayıtları ekle:
+Bu yazı çıkıyorsa site henüz GitHub’da yayınlanmamış demektir. DNS çalışıyor; eksik olan yayın ayarı.
 
-**hazelunebakery.online** (A):
+1. https://github.com/berrenaz/brn/settings/pages
+2. **Build and deployment** → Source: **Deploy from a branch**
+3. Branch: `cursor/hazelune-homepage-378a`  Folder: `/ (root)`  → **Save**
+4. Custom domain: `hazelunebakery.online` → **Save**
+5. Yeşil tik gelince **Enforce HTTPS**
 
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
+Birkaç dakika sonra https://hazelunebakery.online açılır.
 
-**www.hazelunebakery.online** (CNAME):
-
-- `berrenaz.github.io`
 
