@@ -355,16 +355,15 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: none;
 }
 
 .photo.has-image {
   border-style: solid;
-  background: #ddd;
+  background: #1a120c;
 }
 
-.photo.has-image img {
-  display: block;
+.photo.has-image .photo-hint {
+  display: none;
 }
 
 .photo::before {

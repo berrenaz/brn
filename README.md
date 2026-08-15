@@ -20,12 +20,16 @@ Hazelune/
     ...
 ```
 
-## Görseli yarın değiştirmek
+## Görsel boyutu
 
-Gömülü bir şey değiştirmen gerekmez.
+Özel bir ölçü şart değil. `serpme-kahvalti.jpg` gibi kare veya yatay fotoğraf yeter.
 
-1. `images` klasöründe o ürünün dosyasını aynı adla değiştir  
-   örnek: `images/serpme-kahvalti.jpg`
-2. Tarayıcıda sayfayı yenile (gerekirse Ctrl+Shift+R)
+- Format: `.jpg` `.jpeg` `.png` `.webp`
+- Dosya adı menüdekiyle **aynı** olsun: `serpme-kahvalti.jpg`
+- Çok büyük olmasına gerek yok; 800–1600 px rahat yeter
 
-GitHub’a da yüklüyorsan: `images` klasörüne aynı adla Upload et, sonra ZIP’i tekrar indir veya bilgisayarındaki `images` dosyasını değiştir.
+## Görseli değiştirmek
+
+1. `images` klasöründe dosyayı aynı adla değiştir
+2. `index.html` ile `images` klasörü yan yana olsun
+3. Sayfayı yenile (Ctrl+Shift+R)

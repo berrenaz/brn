@@ -4,7 +4,6 @@
   const menuBody = document.getElementById("menuBody");
   const closeMenu = document.getElementById("closeMenu");
   const cats = document.getElementById("cats");
-  const cacheBust = Date.now();
 
   if (!welcome || !menuScreen || !menuBody || !closeMenu || !cats) return;
 
@@ -89,16 +88,37 @@
     });
   });
 
+  function candidates(fileName) {
+    const base = fileName.replace(/\.[^.]+$/, "");
+    return [...new Set([
+      `images/${fileName}`,
+      `images/${base}.jpg`,
+      `images/${base}.jpeg`,
+      `images/${base}.png`,
+      `images/${base}.webp`,
+    ])];
+  }
+
   document.querySelectorAll(".photo[data-img]").forEach((slot) => {
     const fileName = (slot.dataset.img || "").replace(/^images\//, "");
     if (!fileName) return;
 
-    const image = new Image();
+    const urls = candidates(fileName);
+    const image = slot.querySelector("img") || new Image();
     image.alt = slot.closest(".item")?.querySelector("h3")?.textContent || "";
-    image.onload = () => {
-      slot.appendChild(image);
-      slot.classList.add("has-image");
+    let index = 0;
+
+    const tryNext = () => {
+      if (index >= urls.length) return;
+      image.src = urls[index];
+      index += 1;
     };
-    image.src = `images/${fileName}?v=${cacheBust}`;
+
+    image.addEventListener("load", () => {
+      if (!image.parentElement) slot.prepend(image);
+      slot.classList.add("has-image");
+    });
+    image.addEventListener("error", tryNext);
+    tryNext();
   });
 })();
