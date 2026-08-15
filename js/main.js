@@ -1,0 +1,86 @@
+const welcome = document.getElementById("welcome");
+const menuScreen = document.getElementById("menu");
+const menuBody = document.getElementById("menuBody");
+const closeMenu = document.getElementById("closeMenu");
+const cats = document.getElementById("cats");
+
+function showMenu(sectionId) {
+  menuScreen.classList.add("is-open");
+  menuScreen.setAttribute("aria-hidden", "false");
+  welcome.classList.add("is-hidden");
+  document.body.classList.add("menu-open");
+  menuBody.scrollTop = 0;
+
+  if (sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      requestAnimationFrame(() => {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }
+}
+
+function hideMenu() {
+  menuScreen.classList.remove("is-open");
+  menuScreen.setAttribute("aria-hidden", "true");
+  welcome.classList.remove("is-hidden");
+  document.body.classList.remove("menu-open");
+}
+
+document.querySelectorAll("[data-open-menu]").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    showMenu(link.dataset.target);
+    history.replaceState(null, "", "#menu");
+  });
+});
+
+closeMenu.addEventListener("click", (event) => {
+  event.preventDefault();
+  hideMenu();
+  history.replaceState(null, "", window.location.pathname);
+});
+
+if (window.location.hash === "#menu") {
+  showMenu();
+}
+
+cats.addEventListener("click", (event) => {
+  const button = event.target.closest(".cat");
+  if (!button) return;
+
+  cats.querySelectorAll(".cat").forEach((cat) => cat.classList.remove("is-active"));
+  button.classList.add("is-active");
+
+  const section = document.getElementById(button.dataset.target);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
+
+const sections = [...document.querySelectorAll(".section")];
+const catButtons = [...cats.querySelectorAll(".cat")];
+
+menuBody.addEventListener("scroll", () => {
+  const offset = menuBody.scrollTop + 140;
+  let current = sections[0]?.id;
+
+  sections.forEach((section) => {
+    if (section.offsetTop <= offset) current = section.id;
+  });
+
+  catButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.target === current);
+  });
+});
+
+document.querySelectorAll(".photo[data-img]").forEach((slot) => {
+  const image = new Image();
+  image.alt = slot.closest(".item")?.querySelector("h3")?.textContent || "";
+  image.onload = () => {
+    slot.appendChild(image);
+    slot.classList.add("has-image");
+  };
+  image.src = slot.dataset.img;
+});
