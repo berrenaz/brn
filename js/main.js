@@ -91,7 +91,7 @@
 
   const heroPhoto = document.querySelector(".hero-photo");
   if (heroPhoto) {
-    heroPhoto.src = `images/hero-croissant.jpg?v=${cacheBust}`;
+    heroPhoto.src = `images/hero-croissant.png?v=${cacheBust}`;
   }
 
   document.querySelectorAll(".photo[data-img]").forEach((slot) => {

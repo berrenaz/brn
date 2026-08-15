@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNmN2VmZTMiLz4KICA8cGF0aCBmaWxsPSIjYzRhMzVhIiBkPSJNMTAgMzZjNC0xNiAxOC0yNiAzNC0yNCAxMCAxIDE2IDggMTggMTYtOC0yLTE2LTEtMjggNC0xMCA0LTIwIDQtMjQgNHoiLz4KPC9zdmc+Cg==" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
   <style>
 :root {
   --cream-50: #fffaf3;
@@ -23,7 +23,7 @@
   --card: rgba(255, 251, 244, 0.86);
   --shadow: 0 18px 50px rgba(80, 52, 24, 0.12);
   --radius: 22px;
-  --display: "Bodoni Moda", "Playfair Display", "Times New Roman", serif;
+  --display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Outfit", "Segoe UI", sans-serif;
 }
@@ -124,12 +124,12 @@ button {
 
 .hero h1 {
   font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(2.6rem, 11vw, 8.4rem);
-  letter-spacing: 0.04em;
-  line-height: 0.92;
+  font-weight: 600;
+  font-size: clamp(2.3rem, 8vw, 5.6rem);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
   text-transform: uppercase;
-  text-shadow: 0 4px 28px rgba(20, 10, 4, 0.35);
+  text-shadow: 0 2px 18px rgba(20, 10, 4, 0.55);
   animation: rise 1.2s 0.12s ease both;
 }
 
@@ -138,57 +138,62 @@ button {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem 0.85rem;
-  margin-top: clamp(16px, 2.4vh, 28px);
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
-  letter-spacing: 0.08em;
-  text-shadow: 0 2px 16px rgba(20, 10, 4, 0.4);
+  gap: 10px;
+  margin-top: clamp(22px, 3vh, 34px);
+  font-family: var(--sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   animation: rise 1.2s 0.24s ease both;
 }
 
 .hero-line a {
   color: inherit;
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background: transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .hero-line a:hover {
-  opacity: 0.72;
-}
-
-.star {
-  display: inline-block;
-  width: 0.55em;
-  height: 0.55em;
-  background: currentColor;
-  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-  opacity: 0.92;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
 }
 
 .hero-cta {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: #fff;
   text-decoration: none;
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 0.95rem;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  text-shadow: 0 2px 14px rgba(20, 10, 4, 0.45);
   animation: rise 1.2s 0.4s ease both;
+}
+
+.hero-cta-label {
+  padding: 10px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-cta:hover .hero-cta-label {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
 }
 
 .hero-cta:visited {
   color: #fff;
 }
 
-.hero-cta span {
+.hero-cta-line {
   width: 1px;
   height: 28px;
   background: linear-gradient(180deg, #fff, transparent);
@@ -544,12 +549,16 @@ button {
 
 @media (max-width: 520px) {
   .hero-line {
-    letter-spacing: 0.04em;
-    gap: 0.4rem 0.55rem;
+    letter-spacing: 0.1em;
+    gap: 8px;
+  }
+
+  .hero-line a {
+    padding: 8px 14px;
   }
 
   .hero h1 {
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
 }
 
@@ -558,7 +567,7 @@ button {
   .hero h1,
   .hero-line,
   .hero-cta,
-  .hero-cta span,
+  .hero-cta-line,
   .item {
     animation: none;
     transition: none;
@@ -569,22 +578,20 @@ button {
 </head>
 <body>
   <section class="hero" id="welcome">
-    <img class="hero-photo" src="images/hero-croissant.jpg" alt="Taze kruvasanın katmanlarını ayıran eller" />
+    <img class="hero-photo" src="images/hero-croissant.png" alt="Taze kruvasanın katmanlarını ayıran eller" />
     <div class="hero-veil" aria-hidden="true"></div>
     <p class="hero-brand">Hazelune</p>
     <div class="hero-center">
       <h1>HOŞGELDİNİZ</h1>
       <p class="hero-line">
         <a href="#menu" data-open-menu data-target="kahvalti">Kahvaltı</a>
-        <span class="star" aria-hidden="true"></span>
         <a href="#menu" data-open-menu data-target="kruvasan">Kruvasan</a>
-        <span class="star" aria-hidden="true"></span>
         <a href="#menu" data-open-menu data-target="kahveler">Kahve</a>
       </p>
     </div>
     <a class="hero-cta" href="#menu" data-open-menu>
-      Menü
-      <span aria-hidden="true"></span>
+      <span class="hero-cta-label">Menü</span>
+      <span class="hero-cta-line" aria-hidden="true"></span>
     </a>
   </section>
 
@@ -1053,7 +1060,7 @@ button {
 
   const heroPhoto = document.querySelector(".hero-photo");
   if (heroPhoto) {
-    heroPhoto.src = `images/hero-croissant.jpg?v=${cacheBust}`;
+    heroPhoto.src = `images/hero-croissant.png?v=${cacheBust}`;
   }
 
   document.querySelectorAll(".photo[data-img]").forEach((slot) => {
