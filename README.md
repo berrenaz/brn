@@ -24,4 +24,23 @@ Hazelune/
 
 Ölçü şart değil. Dosya adı menüdekiyle aynı olsun: `serpme-kahvalti.jpg`
 
-GitHub’daki `images` klasörüne yüklenen fotoğraflar `index.html` içine de işlenir. Yeni `index.html` indirince menüde görünür.
+## Domain: hazelunebakery.online
+
+1. GitHub’da repo **Public** olsun: Settings → Change repository visibility
+2. Settings → Pages
+   - Source: **GitHub Actions**
+   - Custom domain: `hazelunebakery.online`
+   - **Enforce HTTPS**
+3. Domain panelinde (DNS) şu kayıtları ekle:
+
+**hazelunebakery.online** (A):
+
+- `185.199.108.153`
+- `185.199.109.153`
+- `185.199.110.153`
+- `185.199.111.153`
+
+**www.hazelunebakery.online** (CNAME):
+
+- `berrenaz.github.io`
+
