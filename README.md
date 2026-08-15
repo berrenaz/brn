@@ -24,6 +24,8 @@ Hazelune/
 
 Ölçü şart değil. Dosya adı menüdekiyle aynı olsun: `serpme-kahvalti.jpg`
 
+Görseller `images` klasöründen yüklenir. GitHub’da dosyayı değiştirince sitede de değişir.
+
 ## Domain: hazelunebakery.online
 
 Bu yazı çıkıyorsa site henüz GitHub’da yayınlanmamış demektir. DNS çalışıyor; eksik olan yayın ayarı.

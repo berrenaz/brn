@@ -4,7 +4,6 @@
   const menuBody = document.getElementById("menuBody");
   const closeMenu = document.getElementById("closeMenu");
   const cats = document.getElementById("cats");
-  const embedded = window.EMBEDDED_PHOTOS || {};
 
   if (!welcome || !menuScreen || !menuBody || !closeMenu || !cats) return;
 
@@ -112,34 +111,15 @@
     updateActiveCat();
   });
 
-  function candidates(fileName) {
+  function folderUrls(fileName) {
     const base = fileName.replace(/\.[^.]+$/, "");
-    const names = [...new Set([fileName, `${base}.jpg`, `${base}.jpeg`, `${base}.png`, `${base}.webp`])];
-    const urls = [];
-    names.forEach((name) => {
-      if (embedded[name]) urls.push(embedded[name]);
-    });
-    names.forEach((name) => {
-      urls.push(`images/${name}`);
-    });
-    return urls;
-  }
-
-  const heroPhoto = document.querySelector(".hero-photo");
-  if (heroPhoto) {
-    const heroUrls = candidates("hero-croissant.jpg");
-    let heroIndex = 0;
-    const tryHero = () => {
-      if (heroIndex >= heroUrls.length) {
-        heroPhoto.removeAttribute("src");
-        heroPhoto.style.visibility = "hidden";
-        return;
-      }
-      heroPhoto.src = heroUrls[heroIndex];
-      heroIndex += 1;
-    };
-    heroPhoto.addEventListener("error", tryHero);
-    tryHero();
+    return [...new Set([
+      `images/${fileName}`,
+      `images/${base}.jpg`,
+      `images/${base}.jpeg`,
+      `images/${base}.png`,
+      `images/${base}.webp`,
+    ])];
   }
 
   document.querySelectorAll(".photo[data-img]").forEach((slot) => {
@@ -148,7 +128,7 @@
 
     slot.querySelectorAll("img").forEach((old) => old.remove());
 
-    const urls = candidates(fileName);
+    const urls = folderUrls(fileName);
     const image = new Image();
     image.alt = slot.closest(".item")?.querySelector("h3")?.textContent || "";
     let index = 0;
