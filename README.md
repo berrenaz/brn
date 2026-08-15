@@ -20,16 +20,8 @@ Hazelune/
     ...
 ```
 
-## Görsel boyutu
+## Görseller
 
-Özel bir ölçü şart değil. `serpme-kahvalti.jpg` gibi kare veya yatay fotoğraf yeter.
+Ölçü şart değil. Dosya adı menüdekiyle aynı olsun: `serpme-kahvalti.jpg`
 
-- Format: `.jpg` `.jpeg` `.png` `.webp`
-- Dosya adı menüdekiyle **aynı** olsun: `serpme-kahvalti.jpg`
-- Çok büyük olmasına gerek yok; 800–1600 px rahat yeter
-
-## Görseli değiştirmek
-
-1. `images` klasöründe dosyayı aynı adla değiştir
-2. `index.html` ile `images` klasörü yan yana olsun
-3. Sayfayı yenile (Ctrl+Shift+R)
+GitHub’daki `images` klasörüne yüklenen fotoğraflar `index.html` içine de işlenir. Yeni `index.html` indirince menüde görünür.
