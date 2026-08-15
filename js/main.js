@@ -66,27 +66,50 @@
 
     cats.querySelectorAll(".cat").forEach((cat) => cat.classList.remove("is-active"));
     button.classList.add("is-active");
+    button.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
 
     const section = document.getElementById(button.dataset.target);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      const top = section.getBoundingClientRect().top - menuBody.getBoundingClientRect().top + menuBody.scrollTop;
+      lockedSectionId = section.id;
+      menuBody.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     }
   });
 
   const sections = [...document.querySelectorAll(".section")];
   const catButtons = [...cats.querySelectorAll(".cat")];
+  let lockedSectionId = null;
+  let unlockTimer = 0;
 
-  menuBody.addEventListener("scroll", () => {
-    const offset = menuBody.scrollTop + 140;
+  function setActiveCat(sectionId) {
+    catButtons.forEach((button) => {
+      button.classList.toggle("is-active", button.dataset.target === sectionId);
+    });
+  }
+
+  function updateActiveCat() {
+    if (lockedSectionId) {
+      setActiveCat(lockedSectionId);
+      return;
+    }
+
+    const probe = menuBody.getBoundingClientRect().top + 28;
     let current = sections[0]?.id;
 
     sections.forEach((section) => {
-      if (section.offsetTop <= offset) current = section.id;
+      if (section.getBoundingClientRect().top <= probe) current = section.id;
     });
 
-    catButtons.forEach((button) => {
-      button.classList.toggle("is-active", button.dataset.target === current);
-    });
+    setActiveCat(current);
+  }
+
+  menuBody.addEventListener("scroll", () => {
+    window.clearTimeout(unlockTimer);
+    unlockTimer = window.setTimeout(() => {
+      lockedSectionId = null;
+      updateActiveCat();
+    }, 80);
+    updateActiveCat();
   });
 
   function candidates(fileName) {
