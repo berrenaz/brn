@@ -112,14 +112,20 @@
   });
 
   function folderUrls(fileName) {
+    const bust = window.location.protocol === "file:" ? "" : `?v=${Date.now()}`;
     const base = fileName.replace(/\.[^.]+$/, "");
     return [...new Set([
-      `images/${fileName}`,
-      `images/${base}.jpg`,
-      `images/${base}.jpeg`,
-      `images/${base}.png`,
-      `images/${base}.webp`,
+      `images/${fileName}${bust}`,
+      `images/${base}.jpg${bust}`,
+      `images/${base}.jpeg${bust}`,
+      `images/${base}.png${bust}`,
+      `images/${base}.webp${bust}`,
     ])];
+  }
+
+  const heroPhoto = document.querySelector(".hero-photo");
+  if (heroPhoto && window.location.protocol !== "file:") {
+    heroPhoto.src = `images/hero-croissant.jpg?v=${Date.now()}`;
   }
 
   document.querySelectorAll(".photo[data-img]").forEach((slot) => {
