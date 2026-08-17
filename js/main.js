@@ -128,15 +128,25 @@
     heroPhoto.src = `images/hero-croissant.jpg?v=${Date.now()}`;
   }
 
-  document.querySelectorAll(".photo[data-img]").forEach((slot) => {
+  document.querySelectorAll(".photo[data-img], .photo[data-img-url]").forEach((slot) => {
+    slot.querySelectorAll("img").forEach((old) => old.remove());
+
+    const image = new Image();
+    image.alt = slot.closest(".item")?.querySelector("h3")?.textContent || "";
+
+    if (slot.dataset.imgUrl) {
+      image.addEventListener("load", () => {
+        slot.prepend(image);
+        slot.classList.add("has-image");
+      });
+      image.src = slot.dataset.imgUrl;
+      return;
+    }
+
     const fileName = (slot.dataset.img || "").replace(/^images\//, "");
     if (!fileName) return;
 
-    slot.querySelectorAll("img").forEach((old) => old.remove());
-
     const urls = folderUrls(fileName);
-    const image = new Image();
-    image.alt = slot.closest(".item")?.querySelector("h3")?.textContent || "";
     let index = 0;
 
     const tryNext = () => {

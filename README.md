@@ -24,26 +24,68 @@ Hazelune/
 
 Ölçü şart değil. Dosya adı menüdekiyle aynı olsun: `serpme-kahvalti.jpg`
 
-Görseller `images` klasöründen yüklenir. GitHub’da dosyayı değiştirince sitede de değişir.
+Görseller `images` klasöründen yüklenir. Admin panelden yeni foto yüklersen sitede o foto görünür.
+
+Anasayfa fotoğrafı için dosya adı `hero-croissant.jpg` olsun.
 
 ## Domain: hazelunebakery.online
 
-Bu yazı çıkıyorsa site henüz GitHub’da yayınlanmamış demektir. DNS çalışıyor; eksik olan yayın ayarı.
-
 1. https://github.com/berrenaz/brn/settings/pages
 2. **Build and deployment** → Source: **Deploy from a branch**
-3. Branch: `cursor/hazelune-homepage-378a`  Folder: `/ (root)`  → **Save**
+3. Branch: `cursor/hazelune-admin-378a`  Folder: `/ (root)`  → **Save**
 4. Custom domain: `hazelunebakery.online` → **Save**
 5. Yeşil tik gelince **Enforce HTTPS**
 
+Admin paneli (`/admin/`) bu dal yayınlanınca açılır.
+
 ## Admin paneli
 
-Adres: `/admin/`
+Adres: `https://hazelunebakery.online/admin/`
+
+### Giriş
 
 1. Firebase Console → **Authentication** → Sign-in method → **Email/Password** aç
 2. Authentication → Users → **Add user** (e-posta ve şifre)
-3. Project settings → Your apps → Web uygulaması ekle, çıkan `firebaseConfig` değerlerini `admin/js/firebase-config.js` içine yapıştır
-4. Authentication → Settings → Authorized domains içine `hazelunebakery.online` ekle
+3. Authentication → Settings → Authorized domains içine `hazelunebakery.online` ekle
 
+### Menüyü kaydetmek (bir kez)
 
+Fotoğraf, açıklama ve fiyatın sitede değişmesi için Firestore ve Storage gerekir.
 
+1. Firebase Console → **Build** → **Firestore Database** → **Create database**
+   - Location: `eur3` (europe-west) yeter
+   - Start in test mode diyebilirsin; hemen ardından kuralları değiştir
+2. Firestore → **Rules** sekmesine şunu yapıştır → **Publish**:
+
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /items/{itemId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
+
+3. Firebase Console → **Build** → **Storage** → **Get started**
+4. Storage → **Rules** sekmesine şunu yapıştır → **Publish**:
+
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /menu/{itemId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+        && request.resource.size < 8 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+  }
+}
+```
+
+5. Panele gir → **Menüyü yükle**
+6. Ürünü değiştir → **Kaydet**
+7. Siteyi yenile, Menü’den kontrol et
