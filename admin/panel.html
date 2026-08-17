@@ -24,6 +24,42 @@
     <p class="lead">Fotoğraf, açıklama ve fiyatı buradan değiştir. Kaydet deyince sitede görünür.</p>
 
     <div class="banner" id="panelBanner" hidden></div>
+
+    <section class="rules-help" id="rulesHelp" hidden>
+      <p><strong>Bir kez yapman yeterli.</strong> İki link, iki kopyala, iki kez Publish.</p>
+      <ol>
+        <li>
+          <a href="https://console.firebase.google.com/project/hazelune-c9a67/firestore/rules" target="_blank" rel="noopener">Firestore kurallarını aç</a>
+          → kutudaki yazıyı sil → <button type="button" class="copy" data-copy="firestore">Bu yazıyı kopyala</button> → yapıştır → <strong>Publish</strong>
+        </li>
+        <li>
+          <a href="https://console.firebase.google.com/project/hazelune-c9a67/storage/rules" target="_blank" rel="noopener">Storage kurallarını aç</a>
+          → kutudaki yazıyı sil → <button type="button" class="copy" data-copy="storage">Bu yazıyı kopyala</button> → yapıştır → <strong>Publish</strong>
+        </li>
+        <li>Bu sayfayı yenile, sonra <strong>Menüyü yükle</strong>’ye bas.</li>
+      </ol>
+      <textarea id="firestoreRulesText" hidden readonly>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /items/{itemId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}</textarea>
+      <textarea id="storageRulesText" hidden readonly>rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /menu/{itemId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+        && request.resource.size &lt; 8 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+  }
+}</textarea>
+    </section>
+
     <button class="seed" id="seedBtn" type="button" hidden>Menüyü yükle</button>
     <nav class="tabs" id="panelTabs" aria-label="Kategoriler"></nav>
     <div id="panelList"><p class="note">Yükleniyor…</p></div>

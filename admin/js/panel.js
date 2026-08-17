@@ -1,6 +1,7 @@
 (function () {
   const api = window.HazeluneMenu;
   const banner = document.getElementById("panelBanner");
+  const rulesHelp = document.getElementById("rulesHelp");
   const tabs = document.getElementById("panelTabs");
   const list = document.getElementById("panelList");
   const seedBtn = document.getElementById("seedBtn");
@@ -14,10 +15,11 @@
   let activeCategory = api.CATEGORIES[0].id;
   let started = false;
 
-  function showBanner(message, kind) {
+  function showBanner(message, kind, showRules) {
     banner.hidden = !message;
     banner.className = "banner" + (kind ? " " + kind : "");
     banner.innerHTML = message || "";
+    if (rulesHelp) rulesHelp.hidden = !showRules;
   }
 
   function previewSrc(item) {
@@ -41,7 +43,7 @@
   function friendlyError(error) {
     const code = error && error.code;
     if (code === "permission-denied") {
-      return "Firebase izin vermedi. Firestore ve Storage kurallarını README’deki gibi yapıştır.";
+      return "Firebase izin vermedi. Aşağıdaki 2 linki aç, yazıyı kopyala, Publish’e bas.";
     }
     if (code === "unavailable" || code === "failed-precondition") {
       return "Firestore henüz açık değil. Firebase Console → Build → Firestore Database → Create database.";
@@ -57,13 +59,13 @@
     if (stored && stored.length) {
       items = stored;
       seedBtn.hidden = true;
-      showBanner("Menü Firebase’den geldi. Değiştirip Kaydet dersen sitede görünür.", "ok");
+      showBanner("Menü Firebase’den geldi. Değiştirip Kaydet dersen sitede görünür.", "ok", false);
       return;
     }
     if (stored && stored.length === 0) {
       items = await api.loadFromJson(JSON_URL);
       seedBtn.hidden = false;
-      showBanner("Menü henüz Firebase’e yüklenmedi. Önce <strong>Menüyü yükle</strong>’ye bas.", "warn");
+      showBanner("Menü henüz Firebase’e yüklenmedi. Önce <strong>Menüyü yükle</strong>’ye bas.", "warn", false);
       return;
     }
     try {
@@ -72,7 +74,7 @@
       items = [];
     }
     seedBtn.hidden = false;
-    showBanner("Firestore okunamadı. Firebase Console’da veritabanını aç, kuralları yapıştır, sonra bu sayfayı yenile.", "warn");
+    showBanner("Firestore henüz hazır değil. Aşağıdaki 2 adımı yap, sonra bu sayfayı yenile.", "warn", true);
   }
 
   function renderTabs() {
@@ -217,11 +219,11 @@
       await batch.commit();
       items = payload;
       seedBtn.hidden = true;
-      showBanner("Menü yüklendi. Artık fotoğraf, açıklama ve fiyatı değiştirebilirsin.", "ok");
+      showBanner("Menü yüklendi. Artık fotoğraf, açıklama ve fiyatı değiştirebilirsin.", "ok", false);
       renderTabs();
       renderList();
     } catch (error) {
-      showBanner(friendlyError(error), "warn");
+      showBanner(friendlyError(error), "warn", true);
       seedBtn.hidden = false;
     } finally {
       seedBtn.disabled = false;
@@ -258,13 +260,34 @@
     seedBtn.addEventListener("click", seedMenu);
   }
 
+  if (rulesHelp) {
+    rulesHelp.addEventListener("click", async (event) => {
+      const button = event.target.closest("[data-copy]");
+      if (!button) return;
+      const sourceId = button.dataset.copy === "storage" ? "storageRulesText" : "firestoreRulesText";
+      const source = document.getElementById(sourceId);
+      if (!source) return;
+      try {
+        await navigator.clipboard.writeText(source.value);
+        button.textContent = "Kopyalandı";
+        window.setTimeout(() => {
+          button.textContent = "Bu yazıyı kopyala";
+        }, 1600);
+      } catch (error) {
+        source.hidden = false;
+        source.select();
+        button.textContent = "Yazıyı seçtim, Ctrl+C";
+      }
+    });
+  }
+
   async function start() {
     if (started) return;
     started = true;
     try {
       await loadItems();
     } catch (error) {
-      showBanner(friendlyError(error), "warn");
+      showBanner(friendlyError(error), "warn", true);
     }
     renderTabs();
     renderList();

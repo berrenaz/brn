@@ -219,6 +219,38 @@ body.is-panel {
   background: rgba(154, 80, 40, 0.12);
 }
 
+.rules-help {
+  margin-bottom: 18px;
+  padding: 16px 16px 8px;
+  border-radius: 16px;
+  background: #fffaf3;
+  border: 1px solid rgba(196, 163, 90, 0.28);
+  line-height: 1.55;
+}
+
+.rules-help ol {
+  margin: 10px 0 0 18px;
+}
+
+.rules-help li {
+  margin-bottom: 12px;
+}
+
+.rules-help a {
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+.copy {
+  width: auto;
+  display: inline-flex;
+  margin: 0 4px;
+  padding: 7px 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.85rem;
+}
+
 .seed {
   width: auto;
   margin: 0 0 18px;
