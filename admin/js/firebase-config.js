@@ -1,10 +1,9 @@
-// Firebase Console → Project settings → Your apps → Web app
-// Aşağıdaki değerleri kendi projeninkilerle değiştir.
 window.FIREBASE_CONFIG = {
-  apiKey: "BURAYA_API_KEY",
-  authDomain: "BURAYA_PROJE.firebaseapp.com",
-  projectId: "BURAYA_PROJE_ID",
-  storageBucket: "BURAYA_PROJE.firebasestorage.app",
-  messagingSenderId: "BURAYA_SENDER_ID",
-  appId: "BURAYA_APP_ID",
+  apiKey: "AIzaSyBDsAfSi7quvlOMIhI2SQSY1kfxI2UdJqA",
+  authDomain: "hazelune-c9a67.firebaseapp.com",
+  projectId: "hazelune-c9a67",
+  storageBucket: "hazelune-c9a67.firebasestorage.app",
+  messagingSenderId: "100843149182",
+  appId: "1:100843149182:web:77e390f0eb14418fefc52f",
+  measurementId: "G-GK6JQKXWD2",
 };
