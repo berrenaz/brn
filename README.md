@@ -36,6 +36,14 @@ Bu yazı çıkıyorsa site henüz GitHub’da yayınlanmamış demektir. DNS ça
 4. Custom domain: `hazelunebakery.online` → **Save**
 5. Yeşil tik gelince **Enforce HTTPS**
 
-Birkaç dakika sonra https://hazelunebakery.online açılır.
+## Admin paneli
+
+Adres: `/admin/`
+
+1. Firebase Console → **Authentication** → Sign-in method → **Email/Password** aç
+2. Authentication → Users → **Add user** (e-posta ve şifre)
+3. Project settings → Your apps → Web uygulaması ekle, çıkan `firebaseConfig` değerlerini `admin/js/firebase-config.js` içine yapıştır
+4. Authentication → Settings → Authorized domains içine `hazelunebakery.online` ekle
+
 
 
